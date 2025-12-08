@@ -1,10 +1,14 @@
+using Microsoft.AspNetCore.Mvc;
 using Orderly.Risk.Contracts;
 
 namespace Orderly.Risk.Api.Endpoints;
 
 internal static partial class Endpoints
 {
-	internal static async Task<IResult> EvaluateRisk(RiskRequest request, IRiskService riskService)
+	internal static async Task<IResult> EvaluateRisk(
+		[FromBody] RiskRequest request,
+		[FromServices] IRiskService riskService
+	)
 	{
 		if (request is null)
 		{
