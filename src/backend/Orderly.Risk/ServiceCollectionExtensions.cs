@@ -9,9 +9,6 @@ namespace Orderly.Risk;
 /// </summary>
 public static class ServiceCollectionExtensions
 {
-	/// <summary>
-	/// Defines extensions to <see cref="IServiceCollection" />.
-	/// </summary>
 	extension(IServiceCollection services)
 	{
 		/// <summary>
