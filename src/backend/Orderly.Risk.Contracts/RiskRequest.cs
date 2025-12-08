@@ -8,7 +8,7 @@ namespace Orderly.Risk.Contracts;
 /// <param name="TotalCost">The total cost associated with the request.</param>
 public sealed record RiskRequest
 (
-    Guid RequestId,
-    Guid CustomerId,
-    decimal TotalCost
+	Guid RequestId,
+	Guid CustomerId,
+	decimal TotalCost
 );
