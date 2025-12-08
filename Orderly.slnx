@@ -1,11 +1,15 @@
 <Solution>
   <Folder Name="/src/" />
   <Folder Name="/src/backend/">
-    <Project Path="src/backend/Orderly.Api/Orderly.Api.csproj" />
-    <Project Path="src/backend/Orderly.Risk/Orderly.Risk.csproj" />
-    <Project Path="src/backend/Orderly.Risk.Contracts/Orderly.Risk.Contracts.csproj" />
-    <Project Path="src/backend/Orderly.Fulfillment/Orderly.Fulfillment.csproj" />
-    <Project Path="src/backend/Orderly.Contracts/Orderly.Contracts.csproj" />
     <Project Path="src/backend/Orderly.Core/Orderly.Core.csproj" />
+    <Project Path="src/backend/Orderly.Fulfillment/Orderly.Fulfillment.csproj" />
+
+    <Project Path="src/backend/Orderly.Orders/Orderly.Orders.csproj" />
+    <Project Path="src/backend/Orderly.Orders.Api/Orderly.Orders.Api.csproj" />
+    <Project Path="src/backend/Orderly.Contracts/Orderly.Contracts.csproj" />
+
+    <Project Path="src/backend/Orderly.Risk/Orderly.Risk.csproj" />
+    <Project Path="src/backend/Orderly.Risk.Api/Orderly.Risk.Api.csproj" />
+    <Project Path="src/backend/Orderly.Risk.Contracts/Orderly.Risk.Contracts.csproj" />
   </Folder>
 </Solution>
