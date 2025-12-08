@@ -1,32 +1,15 @@
-@HostAddress = http://localhost:5230
+@HostAddress = https://localhost:5002
 @RiskEndpoint = {{HostAddress}}/risk
 
-### 1. ACCEPTANCE TEST: Total Cost $100 (Expected: IsAccepted: true, Status: 200 OK)
-GET {{RiskEndpoint}} HTTP/1.1
-Content-Type: application/json
+@RequestId = 50000000-0000-0000-0000-000000000001
+@SafeCustomerId = 00000000-0000-0000-0000-000000000001
+@BannedCustomerId = 00000000-0000-0000-0000-000000000002
 
-{
-	"requestId": "50000000-0000-0000-0000-000000000001",
-	"customerId": "00000000-0000-0000-0000-000000000001",
-	"totalCost": 100.00
-}
+### 1. ACCEPTANCE TEST
+GET {{RiskEndpoint}}?requestId={{RequestId}}&customerId={{SafeCustomerId}}&cost=100.00 HTTP/1.1
 
-### 2. REJECTION TEST: Total Cost $501 (Expected: IsAccepted: false, Status: 200 OK)
-GET {{RiskEndpoint}} HTTP/1.1
-Content-Type: application/json
+### 2. REJECTION TEST: High Cost
+GET {{RiskEndpoint}}?requestId={{RequestId}}&customerId={{SafeCustomerId}}&cost=10001.00 HTTP/1.1
 
-{
-	"requestId": "50000000-0000-0000-0000-000000000002",
-	"customerId": "00000000-0000-0000-0000-000000000001",
-	"totalCost": 10001.00
-}
-
-### 3. REJECTION TEST: Blocked Customer ID (Expected: IsAccepted: false, Status: 200 OK)
-GET {{RiskEndpoint}} HTTP/1.1
-Content-Type: application/json
-
-{
-	"requestId": "50000000-0000-0000-0000-000000000003",
-	"customerId": "00000000-0000-0000-0000-000000000002",
-	"totalCost": 10001.00
-}
+### 3. REJECTION TEST: Banned Customer
+GET {{RiskEndpoint}}?requestId={{RequestId}}&customerId={{BannedCustomerId}}&cost=500.00 HTTP/1.1

@@ -6,29 +6,32 @@ namespace Orderly.Risk.Api.Endpoints;
 internal static partial class Endpoints
 {
 	internal static async Task<IResult> EvaluateRisk(
-		[FromBody] RiskRequest request,
+		[FromQuery] Guid requestId,
+		[FromQuery] Guid customerId,
+		[FromQuery] decimal cost,
 		[FromServices] IRiskService riskService,
 		CancellationToken cancellationToken
 	)
 	{
-		if (request is null)
+		if (requestId == Guid.Empty)
 		{
-			RiskResponse response = new(Guid.Empty, false, 1.0, "Unable to assess risk without a properly formed request.");
+			RiskResponse response = new(requestId, false, 1.0, "A request ID is required to assess risk.");
 			return Results.BadRequest(response);
 		}
 
-		if (request.RequestId == Guid.Empty)
+		if (customerId == Guid.Empty)
 		{
-			RiskResponse response = new(request.RequestId, false, 1.0, "A request ID is required to assess risk.");
+			RiskResponse response = new(requestId, false, 1.0, "A customer ID is required to assess risk.");
 			return Results.BadRequest(response);
 		}
 
-		if (request.CustomerId == Guid.Empty)
+		if (cost <= 0)
 		{
-			RiskResponse response = new(request.RequestId, false, 1.0, "A customer ID is required to assess risk.");
+			RiskResponse response = new(requestId, false, 1.0, "The cost must be greater than zero to assess risk.");
 			return Results.BadRequest(response);
 		}
 
+		RiskRequest request = new(requestId, customerId, cost);
 		RiskResponse riskResponse = await riskService.EvaluateRisk(request, cancellationToken);
 		return Results.Ok(riskResponse);
 	}
