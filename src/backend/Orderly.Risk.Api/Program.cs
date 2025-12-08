@@ -1,5 +1,4 @@
 using Orderly.Customers;
-using Orderly.Customers.Infrastructure;
 using Orderly.Risk;
 using Orderly.Risk.Api.Endpoints;
 
@@ -24,5 +23,4 @@ static void RegisterEndpoints(WebApplication app)
 static void RegisterServices(IServiceCollection services) => services
 	.AddOpenApi()
 	.AddRiskServices()
-	.AddCustomerInfrastructure()
 	.AddCustomerServices();

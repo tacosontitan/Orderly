@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Orderly.Customers.Contracts;
+using Orderly.Customers.Infrastructure;
 
 namespace Orderly.Customers;
 
@@ -14,10 +15,8 @@ public static class ServiceCollectionExtensions
 		/// Adds customer services to the service collection.
 		/// </summary>
 		/// <returns>The updated service collection.</returns>
-		public IServiceCollection AddCustomerServices()
-		{
-			services.AddTransient<ICustomerService, CustomerService>();
-			return services;
-		}
+		public IServiceCollection AddCustomerServices() => services
+			.AddCustomerInfrastructure()
+			.AddScoped<ICustomerService, CustomerService>();
 	}
 }
