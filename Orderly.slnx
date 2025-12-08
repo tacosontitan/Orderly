@@ -2,5 +2,6 @@
   <Folder Name="/src/" />
   <Folder Name="/src/backend/">
     <Project Path="src/backend/Orderly.Api/Orderly.Api.csproj" />
+	<Project Path="src/backend/Orderly.Fulfillment/Orderly.Fulfillment.csproj" />
   </Folder>
 </Solution>
