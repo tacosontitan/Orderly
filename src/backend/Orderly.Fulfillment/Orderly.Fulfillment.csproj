@@ -10,4 +10,15 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
   </ItemGroup>
+
+  	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="../Orderly.Core/Orderly.Core.csproj" />
+		<ProjectReference Include="../Orderly.Orders.Contracts/Orderly.Orders.Contracts.csproj" />
+	</ItemGroup>
+
 </Project>

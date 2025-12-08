@@ -14,9 +14,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Orderly.Core\Orderly.Core.csproj" />
-    <ProjectReference Include="..\Orderly.Contracts\Orderly.Contracts.csproj" />
+    <ProjectReference Include="..\Orderly.Orders.Contracts\Orderly.Orders.Contracts.csproj" />
     <ProjectReference Include="..\Orderly.Fulfillment\Orderly.Fulfillment.csproj" />
-    <ProjectReference Include="..\Orderly.Risk\Contracts\Orderly.Risk.Contracts.csproj" />
+    <ProjectReference Include="..\Orderly.Risk.Contracts\Orderly.Risk.Contracts.csproj" />
     <ProjectReference Include="..\Orderly.Risk\Orderly.Risk.csproj" />
   </ItemGroup>
 
