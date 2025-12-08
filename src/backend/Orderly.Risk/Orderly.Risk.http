@@ -1,0 +1,6 @@
+@Orderly.Risk_HostAddress = http://localhost:5230
+
+GET {{Orderly.Risk_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
