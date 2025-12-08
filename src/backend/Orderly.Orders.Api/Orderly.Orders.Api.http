@@ -1,0 +1,6 @@
+@Orderly.Orders.Api_HostAddress = http://localhost:5118
+
+GET {{Orderly.Orders.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
