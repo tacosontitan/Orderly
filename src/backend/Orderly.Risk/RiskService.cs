@@ -17,23 +17,23 @@ public sealed class RiskService(IEnumerable<IRiskRule> riskRules) : IRiskService
 	/// </returns>
 	public Task<RiskResponse> EvaluateRisk(RiskRequest request)
 	{
-		int rulesChecked = 0;
+		int rulesFailed = 0;
 		double totalRiskScore = 0;
 		StringBuilder rejectionReasons = new();
 		foreach (IRiskRule rule in riskRules)
 		{
 			RiskResponse result = rule.Evaluate(request);
-			rulesChecked++;
-			totalRiskScore += result.Score;
 			if (!result.IsApproved)
 			{
+				rulesFailed++;
+				totalRiskScore += result.Score;
 				rejectionReasons.AppendLine(result.Reason);
 			}
 		}
 
 		bool isApproved = rejectionReasons.Length == 0;
 		string finalReason = isApproved ? "Approved" : rejectionReasons.ToString().TrimEnd();
-		double averageRiskScore = rulesChecked > 0 ? totalRiskScore / rulesChecked : 0;
+		double averageRiskScore = rulesFailed > 0 ? totalRiskScore / rulesFailed : 0;
 		RiskResponse finalResponse = new(request.RequestId, isApproved, averageRiskScore, finalReason);
 		return Task.FromResult(finalResponse);
 	}
