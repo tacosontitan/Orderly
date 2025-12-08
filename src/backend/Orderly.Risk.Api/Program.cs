@@ -11,8 +11,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.MapGet("/risk", Endpoints.EvaluateRisk).WithName("EvaluateRisk");
+RegisterEndpoints(app);
 app.Run();
+
+static void RegisterEndpoints(WebApplication app)
+{
+	app.MapGet("/risk", Endpoints.EvaluateRisk).WithName("EvaluateRisk");
+}
 
 static void RegisterServices(IServiceCollection services) => services
 	.AddOpenApi()
