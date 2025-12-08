@@ -7,7 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AWSSDK.SQS" Version="4.0.2.6" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Orderly.Core\Orderly.Core.csproj" />
+    <ProjectReference Include="..\Orderly.Contracts\Orderly.Contracts.csproj" />
+    <ProjectReference Include="..\Orderly.Fulfillment\Orderly.Fulfillment.csproj" />
+    <ProjectReference Include="..\Orderly.Risk\Contracts\Orderly.Risk.Contracts.csproj" />
+    <ProjectReference Include="..\Orderly.Risk\Orderly.Risk.csproj" />
   </ItemGroup>
 
 </Project>
