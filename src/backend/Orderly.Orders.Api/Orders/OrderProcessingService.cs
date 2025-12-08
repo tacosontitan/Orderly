@@ -24,5 +24,6 @@ public sealed class OrderProcessingService(
 	public async Task<Guid> ProcessOrder(OrderRequest request)
 	{
 		logger.LogDebug("Processing order request {RequestId} for customer {CustomerId}", request.Id, request.CustomerId);
+		return await Task.FromResult(Guid.NewGuid());
 	}
 }
