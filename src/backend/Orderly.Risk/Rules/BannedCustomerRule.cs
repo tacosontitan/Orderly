@@ -1,3 +1,5 @@
+using Orderly.Risk.Contracts;
+
 namespace Orderly.Risk.Rules;
 
 internal sealed class BannedCustomerRule : IRiskRule
