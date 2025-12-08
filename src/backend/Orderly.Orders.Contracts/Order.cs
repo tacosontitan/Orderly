@@ -1,4 +1,4 @@
-namespace Orderly.Contracts;
+namespace Orderly.Orders.Contracts;
 
 /// <summary>
 /// Represents an order placed by a customer.
@@ -29,4 +29,9 @@ public sealed record Order
 	/// The total cost of the order the customer agreed to pay.
 	/// </summary>
 	public decimal TotalCost { get; init; }
+
+	/// <summary>
+	/// The current status of the order.
+	/// </summary>
+	public OrderStatus Status { get; init; }
 }
