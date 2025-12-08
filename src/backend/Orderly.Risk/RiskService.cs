@@ -15,7 +15,7 @@ public sealed class RiskService(IEnumerable<IRiskRule> riskRules) : IRiskService
     /// <returns>
     ///     A task that represents the asynchronous operation and contains the risk assessment response.
     /// </returns>
-    public Task<RiskResponse> AssessRisk(RiskRequest request)
+    public Task<RiskResponse> EvaluateRisk(RiskRequest request)
     {
         int rulesChecked = 0;
         double totalRiskScore = 0;

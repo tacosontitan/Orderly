@@ -5,5 +5,5 @@ namespace Orderly.Risk.Contracts;
 /// </summary>
 public interface IRiskService
 {
-	Task<RiskResponse> AssessRisk(RiskRequest request);
+	Task<RiskResponse> EvaluateRisk(RiskRequest request);
 }
