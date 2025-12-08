@@ -4,7 +4,6 @@
     <Project Path="src/backend/Orderly.Core/Orderly.Core.csproj" />
     <Project Path="src/backend/Orderly.Fulfillment/Orderly.Fulfillment.csproj" />
 
-    <Project Path="src/backend/Orderly.Orders/Orderly.Orders.csproj" />
     <Project Path="src/backend/Orderly.Orders.Api/Orderly.Orders.Api.csproj" />
     <Project Path="src/backend/Orderly.Contracts/Orderly.Contracts.csproj" />
 
