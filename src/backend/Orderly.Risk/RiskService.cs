@@ -15,14 +15,14 @@ public sealed class RiskService(IEnumerable<IRiskRule> riskRules) : IRiskService
 	/// <returns>
 	///     A task that represents the asynchronous operation and contains the risk assessment response.
 	/// </returns>
-	public Task<RiskResponse> EvaluateRisk(RiskRequest request)
+	public async Task<RiskResponse> EvaluateRisk(RiskRequest request, CancellationToken cancellationToken)
 	{
 		int rulesFailed = 0;
 		double totalRiskScore = 0;
 		StringBuilder rejectionReasons = new();
 		foreach (IRiskRule rule in riskRules)
 		{
-			RiskResponse result = rule.Evaluate(request);
+			RiskResponse result = await rule.Evaluate(request, cancellationToken);
 			if (!result.IsApproved)
 			{
 				rulesFailed++;
@@ -34,7 +34,6 @@ public sealed class RiskService(IEnumerable<IRiskRule> riskRules) : IRiskService
 		bool isApproved = rejectionReasons.Length == 0;
 		string finalReason = isApproved ? "Approved" : rejectionReasons.ToString().TrimEnd();
 		double averageRiskScore = rulesFailed > 0 ? totalRiskScore / rulesFailed : 0;
-		RiskResponse finalResponse = new(request.RequestId, isApproved, averageRiskScore, finalReason);
-		return Task.FromResult(finalResponse);
+		return new(request.RequestId, isApproved, averageRiskScore, finalReason);
 	}
 }

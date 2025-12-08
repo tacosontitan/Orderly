@@ -7,7 +7,8 @@ internal static partial class Endpoints
 {
 	internal static async Task<IResult> EvaluateRisk(
 		[FromBody] RiskRequest request,
-		[FromServices] IRiskService riskService
+		[FromServices] IRiskService riskService,
+		CancellationToken cancellationToken
 	)
 	{
 		if (request is null)
@@ -28,7 +29,7 @@ internal static partial class Endpoints
 			return Results.BadRequest(response);
 		}
 
-		RiskResponse riskResponse = await riskService.EvaluateRisk(request);
+		RiskResponse riskResponse = await riskService.EvaluateRisk(request, cancellationToken);
 		return Results.Ok(riskResponse);
 	}
 }

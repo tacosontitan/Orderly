@@ -9,6 +9,7 @@ public interface IRiskRule
 	/// Evaluates the risk request and returns a risk response.
 	/// </summary>
 	/// <param name="request">The risk request to evaluate.</param>
+	/// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
 	/// <returns>A risk response based on the evaluation.</returns>
-	RiskResponse Evaluate(RiskRequest request);
+	Task<RiskResponse> Evaluate(RiskRequest request, CancellationToken cancellationToken);
 }

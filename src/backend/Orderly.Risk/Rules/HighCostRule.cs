@@ -10,7 +10,7 @@ internal sealed class HighCostRule : IRiskRule
 	private const decimal HighCostThreshold = 10000m;
 
 	/// <inheritdoc />
-	public RiskResponse Evaluate(RiskRequest request)
+	public async Task<RiskResponse> Evaluate(RiskRequest request, CancellationToken cancellationToken)
 	{
 		if (request.TotalCost > HighCostThreshold)
 		{

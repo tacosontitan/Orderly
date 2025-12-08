@@ -1,20 +1,20 @@
+using Orderly.Customers.Contracts;
 using Orderly.Risk.Contracts;
 
 namespace Orderly.Risk.Rules;
 
-internal sealed class BannedCustomerRule : IRiskRule
+internal sealed class BannedCustomerRule(ICustomerService customerService) : IRiskRule
 {
-	private static readonly HashSet<Guid> BannedCustomers = new()
-	{
-		Guid.Parse("11111111-1111-1111-1111-111111111111"),
-		Guid.Parse("22222222-2222-2222-2222-222222222222"),
-		Guid.Parse("33333333-3333-3333-3333-333333333333")
-	};
-
 	/// <inheritdoc />
-	public RiskResponse Evaluate(RiskRequest request)
+	public async Task<RiskResponse> Evaluate(RiskRequest request, CancellationToken cancellationToken)
 	{
-		if (BannedCustomers.Contains(request.CustomerId))
+		Customer? customer = await customerService.GetCustomerById(request.CustomerId, cancellationToken);
+		if (customer is null)
+		{
+			return RiskResponse.Reject(request.RequestId, 1.0, "Customer not found.");
+		}
+
+		if (customer.IsBanned)
 		{
 			return RiskResponse.Reject(request.RequestId, 1.0, "Customer is banned.");
 		}
