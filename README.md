@@ -8,4 +8,4 @@ Orderly is a simple portfolio project demonstrating my ability to architect and 
 
 Get started by reviewing the answers to the following questions:
 
-- [How should I behave here?](./CODE_OF_CONDUCT.md)ß
+- [How should I behave here?](./CODE_OF_CONDUCT.md)
