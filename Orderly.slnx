@@ -3,6 +3,7 @@
   <Folder Name="/src/backend/">
     <Project Path="src/backend/Orderly.Api/Orderly.Api.csproj" />
     <Project Path="src/backend/Orderly.Risk/Orderly.Risk.csproj" />
+    <Project Path="src/backend/Orderly.Risk.Contracts/Orderly.Risk.Contracts.csproj" />
     <Project Path="src/backend/Orderly.Fulfillment/Orderly.Fulfillment.csproj" />
     <Project Path="src/backend/Orderly.Contracts/Orderly.Contracts.csproj" />
   </Folder>
