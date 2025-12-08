@@ -2,6 +2,20 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?LinkId=733558
   "version": "2.0.0",
   "tasks": [
+	{
+		"label": "build",
+		"command": "dotnet",
+		"type": "process",
+		"args": [
+			"build",
+			"${workspaceFolder}"
+		],
+		"problemMatcher": "$msCompile",
+		"group": {
+			"kind": "build",
+			"isDefault": true
+		}
+	},
     {
       "type": "npm",
       "script": "start",
