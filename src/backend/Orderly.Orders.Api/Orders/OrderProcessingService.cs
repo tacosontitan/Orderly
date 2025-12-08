@@ -1,6 +1,6 @@
 using Amazon.SQS;
 using Microsoft.Extensions.Options;
-using Orderly.Contracts;
+using Orderly.Orders.Contracts;
 using Orderly.Core;
 
 namespace Orderly.Api.Orders;
