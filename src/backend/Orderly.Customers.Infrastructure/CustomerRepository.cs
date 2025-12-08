@@ -31,7 +31,6 @@ internal sealed class MockCustomerRepository(ILogger<MockCustomerRepository> log
 			"charlie.brown@example.com",
 			false
 		)
-,
 	];
 
 	/// <inheritdoc />
