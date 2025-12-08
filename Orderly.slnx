@@ -6,5 +6,6 @@
     <Project Path="src/backend/Orderly.Risk.Contracts/Orderly.Risk.Contracts.csproj" />
     <Project Path="src/backend/Orderly.Fulfillment/Orderly.Fulfillment.csproj" />
     <Project Path="src/backend/Orderly.Contracts/Orderly.Contracts.csproj" />
+    <Project Path="src/backend/Orderly.Core/Orderly.Core.csproj" />
   </Folder>
 </Solution>
