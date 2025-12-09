@@ -2,6 +2,7 @@ namespace Orderly.Orders.Contracts;
 
 /// <summary>
 /// Defines members for evaluating orders through a gateway.
+/// </summary>
 public interface IOrderEvaluationGateway
 {
 	/// <summary>
