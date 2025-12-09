@@ -1,6 +1,6 @@
 # 🛍️ Orderly
 
-Orderly is a simple portfolio project demonstrating my ability to architect and build a microservices-based application using modern .NET technologies and best practices.
+Orderly is a full-stack portfolio project built with a .NET backend and an Angular front end featuring a microservice architecture utilizing domain-driven design principles for clean, scalable, and maintainable code.
 
 ![License](https://img.shields.io/github/license/tacosontitan/Orderly?logo=github&style=for-the-badge)
 
