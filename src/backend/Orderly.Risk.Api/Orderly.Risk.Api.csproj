@@ -1,24 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <LanguageVersion>preview</LanguageVersion>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Orderly.Core\Orderly.Core.csproj" />
 
-  <ItemGroup>
-    <ProjectReference Include="..\Orderly.Core\Orderly.Core.csproj" />
+		<ProjectReference Include="..\Orderly.Risk\Orderly.Risk.csproj" />
+		<ProjectReference Include="..\Orderly.Risk.Contracts\Orderly.Risk.Contracts.csproj" />
 
-    <ProjectReference Include="..\Orderly.Risk\Orderly.Risk.csproj" />
-	<ProjectReference Include="..\Orderly.Risk.Contracts\Orderly.Risk.Contracts.csproj" />
-
-	<ProjectReference Include="..\Orderly.Customers\Orderly.Customers.csproj" />
-	<ProjectReference Include="..\Orderly.Customers.Contracts\Orderly.Customers.Contracts.csproj" />
-  </ItemGroup>
+		<ProjectReference Include="..\Orderly.Customers\Orderly.Customers.csproj" />
+		<ProjectReference Include="..\Orderly.Customers.Contracts\Orderly.Customers.Contracts.csproj" />
+	</ItemGroup>
 
 </Project>
